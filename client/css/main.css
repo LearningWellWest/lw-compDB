@@ -1,0 +1,17 @@
+body{
+	background:#1C70A8;
+}
+
+#Header a {
+	color:white;
+	margin-right:10px;
+
+}
+
+#login-dropdown-list a{
+	color:#1C70A8;
+}
+
+.whiteText{
+	color:#fff;
+}

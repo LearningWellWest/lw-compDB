@@ -1,0 +1,25 @@
+<template name="addCompetence">
+		<form role="form">
+	  <div class="form-group">
+	    <input type="text" class="form-control" id="AddCompetence" placeholder="Add new competence.." autocomplete="off">
+	  </div>
+	</form>
+
+	{{> competenceList}}
+
+</template>
+
+<template name="competenceList">
+	<div id="CompetenceList" style="color:white">
+		<form>
+		{{#each competences}}
+			{{#if isChecked}}
+				<input type="checkbox" name="{{name}}" class="compCheck" value="{{name}}" checked>{{name}}
+			{{else}}
+				<input type="checkbox" name="{{name}}" class="compCheck"  value="{{name}}">{{name}}
+			{{/if}}
+			<br>
+		{{/each}}
+		</form>
+	</div>
+</template>

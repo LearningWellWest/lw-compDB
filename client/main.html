@@ -1,0 +1,67 @@
+<head>
+  <title>Learningwell - CompetenceDB</title>
+</head>
+
+<template name="masterLayout">
+
+	<div class="content container">
+
+	  	<div id="Header" style="height:30px;">
+			<div class="pull-right" style="margin:20px;">
+				<a href="{{pathFor 'home'}}">Start</a>
+				{{#if currentUser}}
+	  				<a href="{{pathFor 'addCompetence'}}">Add competence</a>
+	  			{{/if}}
+				{{> loginButtons align="right"}}
+			</div>
+		</div>
+
+		<div class="logoAndImage">
+			<img src="logo.png" style="margin-bottom:14px;" />
+			<span style="font-size:30px; color:#fff;">
+				Learningwell - Competence DB
+			</span>
+		</div>
+		<br>
+
+
+		{{> yield}}
+	</div>
+</template>
+
+<template name="home">
+	<form role="form">
+	  <div class="form-group">
+	    <input type="text" class="form-control" id="CompetenceText" value="{{competenceText}}" placeholder="Search by competence.." autocomplete="off">
+	  </div>
+	</form>
+	<div class="whiteText">
+		{{#if competenceText}}
+			People with any of the following competences:
+			<br>
+			{{#each matchingCompetences}}
+				<span class="label label-primary">{{name}}</span>
+			{{else}}
+				No matching competence
+			{{/each}}
+		
+			<br>
+			<br>
+			<br>
+			<table>
+				{{#each persons}}
+					<tr>
+						<td>
+						{{#each emails}}
+							{{address}}
+						{{/each}}
+						</td>
+					</tr>
+				{{else}}
+					No matches
+				{{/each}}
+			</table>
+		{{/if}}
+	</div>
+
+</template>
