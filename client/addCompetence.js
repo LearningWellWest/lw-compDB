@@ -54,7 +54,7 @@ Template.competenceList.events({
 
 Template.addCompetence.events({
     'keypress #AddCompetence': function(e) {
-        if (e.which == 13 || e.which == 32) {
+        if (e.which == 13) {
             e.preventDefault();
             text = $(e.currentTarget).val();
             console.log("added competence: " + text);
